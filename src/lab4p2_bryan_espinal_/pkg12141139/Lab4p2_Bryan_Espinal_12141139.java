@@ -22,8 +22,18 @@ public class Lab4p2_Bryan_Espinal_12141139 {
         familia.get(0).setAldeanos(h);
         Herrero q =new Herrero("paco","Montesco",20,500);
         familia.get(0).setAldeanos(q);
-        agronomo agro =new agronomo("ciel","Montesco",20,500);
+        agronomo agro =new agronomo("ciel","Montesco",25,500);
         familia.get(0).setAldeanos(agro);
+        familia.add(new Familias("Capuleto"));
+        normales nor =new normales("Julieta","Capuleto",20,1);
+        familia.get(1).setAldeanos(nor);
+        normales nor2 =new normales("palermo","Capuleto",20,453);
+        familia.get(1).setAldeanos(nor2);
+        familia.add(new Familias("capiletos"));
+        agronomo agroo =new agronomo("pico","capiletos",20,300);
+        familia.get(2).setAldeanos(agroo);
+        normales agroooo =new normales("concordia","capiletos",20,450);
+        familia.get(2).setAldeanos(agroooo);
         boolean a=true;
         while(a==true){
             System.out.println("0. Salir"
@@ -39,10 +49,23 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                 }
                 break;
                 case 1:{
-                    System.out.println("Ingrese Nombre de la familia");
-                    String nom=lea.nextLine();
-                    nom=lea.nextLine();
-                    familia.add(new Familias(nom));
+                    String nom="";
+                    int pas=0;
+                    for (int i = 0; i < familia.size(); i++) {
+                        if (i==0) {
+                            System.out.println("Ingrese Nombre de la familia");
+                            nom=lea.nextLine();
+                            nom=lea.nextLine();
+                        }
+                        if (nom.equals(familia.get(i).getApellido()) ) {
+                            pas++;
+                        }
+                    }
+                    if (pas==1) {
+                        System.out.println("esa familia ya existe");
+                    }else{
+                        familia.add(new Familias(nom));
+                    }
                 }
                 break;
                 case 2:{
@@ -115,7 +138,7 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                 }
                 break;
                 case 4:{
-                
+                    System.out.println("Ingrese la Familia con La Que Se Pelearan La Familia montesco");
                 }
                 break;
                 default:{
