@@ -12,6 +12,16 @@ package lab4p2_bryan_espinal_.pkg12141139;
 public class normales extends Aldeanos{
     
     public int ataque(){
-    return 0;
+    return 50;
     }
+
+    public normales(String nombre, String apellidos, int edad, int puntos_vid) {
+        super(nombre, apellidos, edad, puntos_vid);
+    }
+    
+    @Override
+    public String toString() {
+        return " normales " + super.toString();
+    }
+    
 }

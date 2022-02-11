@@ -23,4 +23,11 @@ public class Herrero extends Aldeanos {
     public int ataque(){
     return 0;
     }
+
+    @Override
+    public String toString() {
+        return " Herrero " + super.toString();
+    }
+    
+    
 }

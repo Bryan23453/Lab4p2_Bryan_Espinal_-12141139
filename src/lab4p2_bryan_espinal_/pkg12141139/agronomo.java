@@ -11,6 +11,16 @@ package lab4p2_bryan_espinal_.pkg12141139;
  */
 public  class agronomo extends Aldeanos{
     public int ataque(){
-    return 0;
+    return 100;
     }
+
+    public agronomo(String nombre, String apellidos, int edad, int puntos_vid) {
+        super(nombre, apellidos, edad, puntos_vid);
+    }
+
+    @Override
+    public String toString() {
+        return " agronomo "+ super.toString();
+    }
+    
 }

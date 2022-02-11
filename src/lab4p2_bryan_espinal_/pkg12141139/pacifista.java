@@ -13,4 +13,14 @@ public  class pacifista extends Aldeanos{
     public int ataque(){
     return 0;
     }
+
+    public pacifista(String nombre, String apellidos, int edad, int puntos_vid) {
+        super(nombre, apellidos, edad, puntos_vid);
+    }
+    
+    @Override
+    public String toString() {
+        return " pacifista " + super.toString();
+    }
+    
 }

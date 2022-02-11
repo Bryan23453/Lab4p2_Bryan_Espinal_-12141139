@@ -58,11 +58,13 @@ public abstract class Aldeanos {
     public void setPuntos_vid(int puntos_vid) {
         this.puntos_vid = puntos_vid;
     }
-    
+
     @Override
     public String toString() {
-        return "Aldeanos{" + "nombre=" + nombre + ", apellido=" + apellidos + '}';
+        return " nombre=" + nombre + ", apellidos=" + apellidos + ", edad=" + edad + ", puntos_vid=" + puntos_vid + '}';
     }
+    
+    
     
     public abstract int ataque();
     

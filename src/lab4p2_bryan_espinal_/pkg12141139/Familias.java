@@ -36,7 +36,7 @@ public class Familias {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
+    
     @Override
     public String toString() {
         return ", apellido= " + apellido + " Aldeanos= " + Aldeanos ;

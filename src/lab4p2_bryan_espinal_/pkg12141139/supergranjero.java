@@ -11,7 +11,7 @@ package lab4p2_bryan_espinal_.pkg12141139;
  */
 public  class supergranjero extends Aldeanos{
     public int ataque(){
-    return 0;
+    return 1000;
     }
 
     public supergranjero() {
@@ -19,6 +19,12 @@ public  class supergranjero extends Aldeanos{
 
     public supergranjero(String nombre, String apellidos, int edad, int puntos_vid) {
         super(nombre, apellidos, edad, puntos_vid);
+    }
+
+    @Override
+    public String toString() {
+        return"SuperGranjero"+ super.toString();
+        
     }
     
 }
