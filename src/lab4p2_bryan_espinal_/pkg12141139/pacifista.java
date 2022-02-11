@@ -9,6 +9,8 @@ package lab4p2_bryan_espinal_.pkg12141139;
  *
  * @author bryan
  */
-public class pacifista extends Aldeanos{
-    
+public  class pacifista extends Aldeanos{
+    public int ataque(){
+    return 0;
+    }
 }

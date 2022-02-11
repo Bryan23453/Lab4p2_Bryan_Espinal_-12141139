@@ -16,13 +16,17 @@ public class Familias {
     String apellido;
     public Familias() {
     }
+
+    public Familias(String apellido) {
+        this.apellido = apellido;
+    }
     
-    public ArrayList<Aldeanos> getFamilia() {
+    public ArrayList<Aldeanos> getAldeanos() {
         return Aldeanos;
     }
 
-    public void setFamilia(ArrayList<Aldeanos> familia) {
-        this.Aldeanos = familia;
+    public void setAldeanos(Aldeanos a) {
+        this.Aldeanos.add(a);
     }
 
     public String getApellido() {
@@ -35,7 +39,7 @@ public class Familias {
 
     @Override
     public String toString() {
-        return "Familias{" + "familia=" + Aldeanos + ", apellido=" + apellido + '}';
+        return ", apellido= " + apellido + " Aldeanos= " + Aldeanos ;
     }
     
 }

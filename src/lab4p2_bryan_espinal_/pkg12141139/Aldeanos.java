@@ -9,18 +9,23 @@ package lab4p2_bryan_espinal_.pkg12141139;
  *
  * @author bryan
  */
-public class Aldeanos {
+public abstract class Aldeanos {
     String nombre;
     String apellidos;
     int edad;
     int puntos_vid;
+    
     public Aldeanos() {
     }
 
-    public Aldeanos(String nombre, String apellidos) {
+    public Aldeanos(String nombre, String apellidos, int edad, int puntos_vid) {
         this.nombre = nombre;
         this.apellidos = apellidos;
+        this.edad = edad;
+        this.puntos_vid = puntos_vid;
     }
+
+    
 
     public String getNombre() {
         return nombre;
@@ -58,5 +63,8 @@ public class Aldeanos {
     public String toString() {
         return "Aldeanos{" + "nombre=" + nombre + ", apellido=" + apellidos + '}';
     }
+    
+    public abstract int ataque();
+    
     
 }
