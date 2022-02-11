@@ -6,6 +6,7 @@
 package lab4p2_bryan_espinal_.pkg12141139;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -20,7 +21,7 @@ public class Lab4p2_Bryan_Espinal_12141139 {
         familia.add(new Familias("Montesco"));
         supergranjero h =new supergranjero("Romeo","Montesco",20,1000);
         familia.get(0).setAldeanos(h);
-        Herrero q =new Herrero("paco","Montesco",20,500);
+        Herrero q =new Herrero("paco","Montesco",20,500,350);
         familia.get(0).setAldeanos(q);
         agronomo agro =new agronomo("ciel","Montesco",25,500);
         familia.get(0).setAldeanos(agro);
@@ -103,7 +104,9 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                             }
                             break;
                             case 3:{
-                                familia.get(pos).setAldeanos(new Herrero(nom, ape, edad, vida+vida/2));
+                                System.out.print("Ingrese daño: ");
+                                int dano=lea.nextInt();
+                                familia.get(pos).setAldeanos(new Herrero(nom, ape, edad, vida+vida/2,dano));
                             }
                             break;
                             case 4:{
@@ -138,7 +141,38 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                 }
                 break;
                 case 4:{
-                    System.out.println("Ingrese la Familia con La Que Se Pelearan La Familia montesco");
+                    
+                    int pos=0,passs=0;
+                    String nombre="";
+                            for (int i = 0; i < familia.size(); i++) {
+                        if (i==0) {
+                            System.out.println("Ingrese nombre de la Familia con La Que Se Pelearan La Familia montesco");
+                            nombre=lea.nextLine();
+                            nombre=lea.nextLine();
+                        }
+                        if (nombre.equals(familia.get(i).getApellido()) ) {
+                            pos=i;
+                            i=familia.size();
+                        }else{
+                            passs++;
+                        }
+                        if (passs==familia.size()) {
+                            System.out.println();
+                            System.out.println("No se encontro Esa Familia");
+                            System.out.println();
+                        }else{
+                            Familias fam1=(Familias)familia.get(0);
+                            Familias fam2 =(Familias)familia.get(pos);
+                            Collections.shuffle( fam1.getAldeanos() );
+                            Collections.shuffle( fam2.getAldeanos() );
+                            boolean cont=true;
+                            while(cont==true){
+                                cont=false;
+                            }
+                            
+                        }
+                        
+                    }
                 }
                 break;
                 default:{

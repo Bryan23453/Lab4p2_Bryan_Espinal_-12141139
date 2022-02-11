@@ -10,8 +10,15 @@ package lab4p2_bryan_espinal_.pkg12141139;
  * @author bryan
  */
 public  class supergranjero extends Aldeanos{
-    public int ataque(){
-    return 1000;
+    public double ataque(Aldeanos persona){
+        if (persona instanceof Herrero) {
+            return 1000+1000*0.1;
+        }
+        if (persona instanceof explosivo) {
+            return 1000+1000*0.15;
+        }else{
+            return 1000;
+        }
     }
 
     public supergranjero() {

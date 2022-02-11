@@ -11,8 +11,12 @@ package lab4p2_bryan_espinal_.pkg12141139;
  */
 public class normales extends Aldeanos{
     
-    public int ataque(){
-    return 50;
+    public double ataque(Aldeanos persona){
+        if (persona instanceof pacifista) {
+            return 50+50*0.05;
+        }else{
+            return 50;
+        }
     }
 
     public normales(String nombre, String apellidos, int edad, int puntos_vid) {

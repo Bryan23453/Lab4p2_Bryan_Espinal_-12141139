@@ -10,8 +10,8 @@ package lab4p2_bryan_espinal_.pkg12141139;
  * @author bryan
  */
 public  class pacifista extends Aldeanos{
-    public int ataque(){
-    return 0;
+    public double ataque(Aldeanos persona){
+        return 0;
     }
 
     public pacifista(String nombre, String apellidos, int edad, int puntos_vid) {

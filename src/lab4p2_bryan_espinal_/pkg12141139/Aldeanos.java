@@ -66,7 +66,7 @@ public abstract class Aldeanos {
     
     
     
-    public abstract int ataque();
+    public abstract double ataque(Aldeanos persona);
     
     
 }
