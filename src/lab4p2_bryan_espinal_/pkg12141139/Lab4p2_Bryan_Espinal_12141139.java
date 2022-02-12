@@ -36,11 +36,13 @@ public class Lab4p2_Bryan_Espinal_12141139 {
         normales agroooo =new normales("concordia","capiletos",20,450);
         familia.get(2).setAldeanos(agroooo);
         boolean a=true;
+        
+        while(a==true){
         if ((familia.size()==2 && familia.get(1).getAldeanos().size()==1) ) {
             System.out.println(" Gano ");
             a=false;
+            break;
         }
-        while(a==true){
             System.out.println("0. Salir"
                     + "\n1. Crear Familia"
                     + "\n2. Crear Aldeano"
