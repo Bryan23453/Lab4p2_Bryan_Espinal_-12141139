@@ -141,38 +141,77 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                 }
                 break;
                 case 4:{
-                    
                     int pos=0,passs=0;
                     String nombre="";
+                    boolean ae=true;
                             for (int i = 0; i < familia.size(); i++) {
-                        if (i==0) {
-                            System.out.println("Ingrese nombre de la Familia con La Que Se Pelearan La Familia montesco");
-                            nombre=lea.nextLine();
-                            nombre=lea.nextLine();
-                        }
-                        if (nombre.equals(familia.get(i).getApellido()) ) {
-                            pos=i;
-                            i=familia.size();
-                        }else{
-                            passs++;
-                        }
-                        if (passs==familia.size()) {
-                            System.out.println();
-                            System.out.println("No se encontro Esa Familia");
-                            System.out.println();
-                        }else{
-                            Familias fam1=(Familias)familia.get(0);
-                            Familias fam2 =(Familias)familia.get(pos);
-                            Collections.shuffle( fam1.getAldeanos() );
-                            Collections.shuffle( fam2.getAldeanos() );
-                            boolean cont=true;
-                            while(cont==true){
-                                cont=false;
+                                if (i==0) {
+                                    System.out.println("Ingrese nombre de la Familia con La Que Se Pelearan La Familia montesco");
+                                    nombre=lea.nextLine();
+                                    nombre=lea.nextLine();
+                                }
+                                if (nombre.equals(familia.get(i).getApellido()) ) {
+                                    pos=i;
+                                    i=familia.size();
+                                }else{
+                                    passs++;
+                                }
+                                if (passs==familia.size()) {
+                                    System.out.println();
+                                    System.out.println("No se encontro Esa Familia");
+                                    System.out.println();
+                                    ae=false;
+                                }
                             }
-                            
-                        }
-                        
-                    }
+                            if (ae==true) {
+                                int ie=0;
+                                Familias fam1=(Familias)familia.get(0);
+                                Familias fam2 =(Familias)familia.get(pos);
+                                Collections.shuffle( fam1.getAldeanos() );
+                                Collections.shuffle( fam2.getAldeanos() );
+                                 int vida1=1;
+                                 int vida2=1;
+                                while(fam2.getAldeanos().size()>0 && fam1.getAldeanos().size()>0){
+                                    if (fam1.getAldeanos().size()!=0 && fam2.getAldeanos().size()!=0 ) {
+                                        vida1=fam1.getAldeanos().get(ie).puntos_vid;
+                                        vida2=fam2.getAldeanos().get(ie).puntos_vid;
+                                    }
+                                    while(vida1>0&&vida2>0){
+                                        double ra=fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
+                                        System.out.println(fam1.getAldeanos().get(ie).getNombre()+" Ataco A "+fam2.getAldeanos().get(ie).getNombre()+" Haciendole "+fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida2-ra));
+                                        vida2=(int) (vida2-ra);
+                                        if (vida2<=0) {
+                                            break;
+                                        }
+                                        ra=fam2.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
+                                        System.out.println(fam2.getAldeanos().get(ie).getNombre()+" Ataco A "+fam1.getAldeanos().get(ie).getNombre()+" Haciendole "+fam2.getAldeanos().get(ie).ataque(fam1.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida1-ra));
+                                        vida1=(int) (vida1-ra);
+                                        //
+                                    }
+                                    if (vida1<=0) {
+                                        if (fam1.getAldeanos().size()!=0) {
+                                            System.out.println("A muerto "+fam1.getAldeanos().get(ie).getNombre());
+                                            fam1.getAldeanos().remove(ie);
+                                        }
+                                    }else{
+                                        if(vida2<=0){
+                                            if (fam2.getAldeanos().size()!=0) {
+                                                System.out.println("A muerto "+fam2.getAldeanos().get(ie).getNombre());
+                                                fam2.getAldeanos().remove(ie);
+                                            }
+                                        }
+                                    }
+                                }
+                                if (fam2.getAldeanos().size()==0) {
+                                    familia.remove(pos);
+                                }else{
+                                if(fam1.getAldeanos().size()==0){
+                                    familia.remove(0);
+                                    System.out.println("Fin De Juego Murio Romeo ");
+                                    a=false;
+                                }
+                                }
+                            }
                 }
                 break;
                 default:{
