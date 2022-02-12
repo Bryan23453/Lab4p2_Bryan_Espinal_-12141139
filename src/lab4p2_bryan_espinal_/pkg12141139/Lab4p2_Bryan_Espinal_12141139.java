@@ -36,6 +36,10 @@ public class Lab4p2_Bryan_Espinal_12141139 {
         normales agroooo =new normales("concordia","capiletos",20,450);
         familia.get(2).setAldeanos(agroooo);
         boolean a=true;
+        if ((familia.size()==2 && familia.get(1).getAldeanos().size()==1) && familia.get(1).getAldeanos().get(1).getNombre().equals("Julieta") ) {
+            System.out.println(" Gano ");
+            a=false;
+        }
         while(a==true){
             System.out.println("0. Salir"
                     + "\n1. Crear Familia"
@@ -163,7 +167,8 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                                     ae=false;
                                 }
                             }
-                            if (ae==true) {
+                            if (pos==1) {
+                                System.out.println("hola");
                                 int ie=0;
                                 Familias fam1=(Familias)familia.get(0);
                                 Familias fam2 =(Familias)familia.get(pos);
@@ -171,20 +176,20 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                                 Collections.shuffle( fam2.getAldeanos() );
                                  int vida1=1;
                                  int vida2=1;
-                                while(fam2.getAldeanos().size()>0 && fam1.getAldeanos().size()>0){
-                                    if (fam1.getAldeanos().size()!=0 && fam2.getAldeanos().size()!=0 ) {
+                                while(fam2.getAldeanos().size()>1 && fam1.getAldeanos().size()>1){
+                                    if (fam1.getAldeanos().size()!=0 && fam2.getAldeanos().size()!=1 ) {
                                         vida1=fam1.getAldeanos().get(ie).puntos_vid;
-                                        vida2=fam2.getAldeanos().get(ie).puntos_vid;
+                                        vida2=fam2.getAldeanos().get(1).puntos_vid;
                                     }
                                     while(vida1>0&&vida2>0){
-                                        double ra=fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
-                                        System.out.println(fam1.getAldeanos().get(ie).getNombre()+" Ataco A "+fam2.getAldeanos().get(ie).getNombre()+" Haciendole "+fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida2-ra));
+                                        double ra=fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(1));
+                                        System.out.println(fam1.getAldeanos().get(ie).getNombre()+" Ataco A "+fam2.getAldeanos().get(1).getNombre()+" Haciendole "+fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(1))+" pto de daño y dejandolo a "+(vida2-ra));
                                         vida2=(int) (vida2-ra);
                                         if (vida2<=0) {
                                             break;
                                         }
-                                        ra=fam2.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
-                                        System.out.println(fam2.getAldeanos().get(ie).getNombre()+" Ataco A "+fam1.getAldeanos().get(ie).getNombre()+" Haciendole "+fam2.getAldeanos().get(ie).ataque(fam1.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida1-ra));
+                                        ra=fam2.getAldeanos().get(1).ataque(fam2.getAldeanos().get(1));
+                                        System.out.println(fam2.getAldeanos().get(1).getNombre()+" Ataco A "+fam1.getAldeanos().get(ie).getNombre()+" Haciendole "+fam2.getAldeanos().get(1).ataque(fam1.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida1-ra));
                                         vida1=(int) (vida1-ra);
                                         //
                                     }
@@ -195,23 +200,71 @@ public class Lab4p2_Bryan_Espinal_12141139 {
                                         }
                                     }else{
                                         if(vida2<=0){
-                                            if (fam2.getAldeanos().size()!=0) {
-                                                System.out.println("A muerto "+fam2.getAldeanos().get(ie).getNombre());
-                                                fam2.getAldeanos().remove(ie);
+                                            if (fam2.getAldeanos().size()!=1) {
+                                                System.out.println("A muerto "+fam2.getAldeanos().get(1).getNombre());
+                                                fam2.getAldeanos().remove(1);
                                             }
                                         }
                                     }
                                 }
-                                if (fam2.getAldeanos().size()==0) {
-                                    familia.remove(pos);
+                                    if(fam1.getAldeanos().size()==0){
+                                        familia.remove(0);
+                                        System.out.println("Fin De Juego Murio Romeo ");
+                                        a=false;
+                                    }
+                                    
                                 }else{
-                                if(fam1.getAldeanos().size()==0){
-                                    familia.remove(0);
-                                    System.out.println("Fin De Juego Murio Romeo ");
-                                    a=false;
-                                }
+                                    if (ae==true) {
+                                    int ie=0;
+                                    Familias fam1=(Familias)familia.get(0);
+                                    Familias fam2 =(Familias)familia.get(pos);
+                                    Collections.shuffle( fam1.getAldeanos() );
+                                    Collections.shuffle( fam2.getAldeanos() );
+                                     int vida1=1;
+                                     int vida2=1;
+                                    while(fam2.getAldeanos().size()>0 && fam1.getAldeanos().size()>0){
+                                        if (fam1.getAldeanos().size()!=0 && fam2.getAldeanos().size()!=0 ) {
+                                            vida1=fam1.getAldeanos().get(ie).puntos_vid;
+                                            vida2=fam2.getAldeanos().get(ie).puntos_vid;
+                                        }
+                                        while(vida1>0&&vida2>0){
+                                            double ra=fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
+                                            System.out.println(fam1.getAldeanos().get(ie).getNombre()+" Ataco A "+fam2.getAldeanos().get(ie).getNombre()+" Haciendole "+fam1.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida2-ra));
+                                            vida2=(int) (vida2-ra);
+                                            if (vida2<=0) {
+                                                break;
+                                            }
+                                            ra=fam2.getAldeanos().get(ie).ataque(fam2.getAldeanos().get(ie));
+                                            System.out.println(fam2.getAldeanos().get(ie).getNombre()+" Ataco A "+fam1.getAldeanos().get(ie).getNombre()+" Haciendole "+fam2.getAldeanos().get(ie).ataque(fam1.getAldeanos().get(ie))+" pto de daño y dejandolo a "+(vida1-ra));
+                                            vida1=(int) (vida1-ra);
+                                            //
+                                        }
+                                        if (vida1<=0) {
+                                            if (fam1.getAldeanos().size()!=0) {
+                                                System.out.println("A muerto "+fam1.getAldeanos().get(ie).getNombre());
+                                                fam1.getAldeanos().remove(ie);
+                                            }
+                                        }else{
+                                            if(vida2<=0){
+                                                if (fam2.getAldeanos().size()!=0) {
+                                                    System.out.println("A muerto "+fam2.getAldeanos().get(ie).getNombre());
+                                                    fam2.getAldeanos().remove(ie);
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (fam2.getAldeanos().size()==0) {
+                                        familia.remove(pos);
+                                    }else{
+                                    if(fam1.getAldeanos().size()==0){
+                                        familia.remove(0);
+                                        System.out.println("Fin De Juego Murio Romeo ");
+                                        a=false;
+                                    }
+                                    }
                                 }
                             }
+                            
                 }
                 break;
                 default:{
